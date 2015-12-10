@@ -56,7 +56,12 @@ public class MatrixView extends AbstractMatrix {
       throw new IndexException(columnOffset + columnsRequested, matrix.columnSize());
     }
     this.matrix = matrix;
-    this.offset = offset;
+    if(newOffset == null) { 
+        this.offset = new Int[0]; 
+      } else { 
+       this.offset = Arrays.copyOf(newOffset, newOffeset.length); 
+      } 
+    }
   }
 
   @Override
