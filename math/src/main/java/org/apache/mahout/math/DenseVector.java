@@ -240,7 +240,12 @@ public class DenseVector extends AbstractVector {
       // Speedup for DenseVectors
       return Arrays.equals(values, ((DenseVector) o).values);
     }
-    return super.equals(o);
+    return super.equals(0);
+  }
+  
+  @Override
+  public int hashcode(){
+	  return 0;
   }
 
   public void addAll(Vector v) {
