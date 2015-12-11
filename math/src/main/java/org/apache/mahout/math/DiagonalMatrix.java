@@ -39,9 +39,12 @@ public class DiagonalMatrix extends AbstractMatrix implements MatrixTimesOps {
     this(new ConstantVector(value, size));
   }
 
-  public DiagonalMatrix(double[] values) {
-    super(values.length, values.length);
-    this.diagonal = new DenseVector(values);
+  public DiagonalMatrix(double[] newValues) {
+    super(newValues.length, newValues.length);
+    if(newValues == null)
+    	this.diagonal = new DenseVector(newValues);
+    else
+    	this.diagonal = Arrays.copyof(newValues, newValues.length());
   }
 
   public static DiagonalMatrix identity(int size) {
