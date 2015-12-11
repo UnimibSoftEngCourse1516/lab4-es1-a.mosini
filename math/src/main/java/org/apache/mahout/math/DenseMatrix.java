@@ -44,14 +44,17 @@ public class DenseMatrix extends AbstractMatrix {
    *          a double[][]
    * @param shallowCopy directly use the supplied array?
    */
-  public DenseMatrix(double[][] values, boolean shallowCopy) {
+  public DenseMatrix(double[][] newValues, boolean shallowCopy) {
     super(values.length, values[0].length);
     if (shallowCopy) {
-      this.values = values;
+    	if(newValues == null)
+    		this.values = newValues;
+    	else
+    		this.values = Arrays.copyof(newValues, newValues.length());
     } else {
-      this.values = new double[values.length][];
-      for (int i = 0; i < values.length; i++) {
-        this.values[i] = values[i].clone();
+      this.values = new double[newValues.length][];
+      for (int i = 0; i < newValues.length; i++) {
+        this.values[i] = newValues[i].clone();
       }
     }
   }

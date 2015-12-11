@@ -34,7 +34,7 @@ public class MatrixView extends AbstractMatrix {
    * @param offset      the int[2] offset into the underlying matrix
    * @param size        the int[2] size of the view
    */
-  public MatrixView(Matrix matrix, int[] offset, int[] size) {
+  public MatrixView(Matrix matrix, int[] newOffset, int[] size) {
     super(size[ROW], size[COL]);
     int rowOffset = offset[ROW];
     if (rowOffset < 0) {
