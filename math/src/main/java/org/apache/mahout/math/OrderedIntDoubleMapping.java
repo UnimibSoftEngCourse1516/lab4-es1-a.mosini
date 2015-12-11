@@ -47,12 +47,15 @@ public final class OrderedIntDoubleMapping implements Serializable, Cloneable {
     numMappings = 0;
   }
 
-  OrderedIntDoubleMapping(int[] newIndices, double[] values, int numMappings) {
+  OrderedIntDoubleMapping(int[] newIndices, double[] newValues, int numMappings) {
     if(newIndices == null)
     	this.indices = newIndices;
     else
     	this.indices = Arrays.copyof(newIndices, newIndices.length());
-    this.values = values;
+    if(newValues == null)
+    	this.values = newValues;
+    else
+    	this.values = Arrays.copyof(newValues, newValues.length());
     this.numMappings = numMappings;
   }
 
